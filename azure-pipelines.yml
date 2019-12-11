@@ -14,11 +14,15 @@ variables:
 
 steps:
 
+
+
 - task: Docker@2
+  displayName: Docker HUB login
   inputs:
     containerRegistry: 'denizzzzp-hub'
     command: 'login'
 - task: Docker@2
+  displayName: Build an push image
   inputs:
     containerRegistry: 'denizzzzp-hub'
     repository: '$(imageName)'
