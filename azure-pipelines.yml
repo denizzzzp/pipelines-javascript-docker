@@ -13,15 +13,10 @@ variables:
   imageName: 'pipelines-javascript-docker'
 
 steps:
-- task: Docker@2
-  displayName: Build an image
-  inputs:
-    repository: $(imageName)
-    command: build
-    Dockerfile: app/Dockerfile
 
 - task: Docker@2
   inputs:
     containerRegistry: 'denizzzzp-hub'
-    repository: 'pipelines-javascript-docker'
-    command: 'push'
+    repository: '$(imageName)'
+    command: 'buildAndPush'
+    Dockerfile: 'app/Dockerfile'
