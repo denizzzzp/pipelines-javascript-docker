@@ -17,6 +17,10 @@ steps:
 - task: Docker@2
   inputs:
     containerRegistry: 'denizzzzp-hub'
+    command: 'login'
+- task: Docker@2
+  inputs:
+    containerRegistry: 'denizzzzp-hub'
     repository: '$(imageName)'
     command: 'buildAndPush'
     Dockerfile: 'app/Dockerfile'
