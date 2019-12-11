@@ -19,3 +19,9 @@ steps:
     repository: $(imageName)
     command: build
     Dockerfile: app/Dockerfile
+
+- task: Docker@2
+  inputs:
+    containerRegistry: 'denizzzzp-hub'
+    repository: 'pipelines-javascript-docker'
+    command: 'push'
